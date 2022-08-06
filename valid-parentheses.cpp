@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
     bool isValid(string s) {
-        // (  )  [  ]  {   }
+        // (  )  [  ]  {   } 
         // 40 41 91 93 123 125
         stack<int> stack;
         for(char& c : s) {
