@@ -32,7 +32,7 @@ public:
         }
         while (!min_heap.empty()) {
             Data const& data = min_heap.top();
-            // Initialize head and current or push back to current
+            // Initialize head and current or push back to current 
             if (!head) {
                 head = node_map[data.index]; 
                 current = node_map[data.index];
