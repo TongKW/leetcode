@@ -15,9 +15,9 @@ public:
             ans.push_back(comb); // Base case
             return;
         };
-        if (k == 0 || n <= 0) return; // Checking Case 1
-        if (start + k > 9) return; // Checking Case 2
-        if ((2 * start + k + 1) * k / 2 > n) return; // Checking Case 3
+        if (k == 0 || n <= 0) return;
+        if (start + k > 9) return;
+        if ((2 * start + k + 1) * k / 2 > n) return;
         for (int i = start + 1; i <= 9; i++) {
             comb.push_back(i);
             solve(i, k-1, n-i, comb); // Recursion
