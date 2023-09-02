@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int total_water = 0;
+    int prev_height = 0;
+    int prev_index = 0;
+    int temp_water = 0;
+
+    void addWater(vector<int>& height, int i) {
+        prev_index = i;
+        prev_height = height[i];
+        total_water += temp_water;
+        temp_water = 0;
+    }
+
+    int trap(vector<int>& height) {
+        prev_height = height[0];
+
+        for (int i = 1; i < height.size(); i++) {
+            if (height[i] >= prev_height) {
+                addWater(height, i);
+                continue;
+            }
+            temp_water += prev_height - height[i];
+        }
+
+        int left_prev_index = prev_index;
+
+        temp_water = 0;
+        prev_index = height.size() - 1;
+        prev_height = height[prev_index];
+
+        for (int i = height.size() - 2; i > left_prev_index; i--) {
+            if (height[i] >= prev_height) {
+                addWater(height, i);
+                continue;
+            }
+            temp_water += prev_height - height[i];
+        }
+
+        total_water += temp_water;
+        return total_water;
+
+    }
+};
